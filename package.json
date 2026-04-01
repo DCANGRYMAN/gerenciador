@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "npx serve .",
-    "build": "npm i"
+    "start": "serve dist",
+    "prebuild": "rm -rf dist && mkdir dist",
+    "build": "cp -r src/* dist/"
   },
   "devDependencies": {
-    "serve": "^14.2.0"
+    "serve": "^14.2.4"
   }
 }
