@@ -1,14 +1,12 @@
 {
-  "name": "project-capital-stream",
+  "name": "meu-site-estatico",
   "version": "1.0.0",
-  "private": true,
   "scripts": {
-    "start": "serve public",
-    "prebuild": "shx rm -rf public && shx mkdir public",
-    "build": "shx cp -r src/* public/"
+    "dev": "npx serve .",
+    "start": "npx serve .",
+    "build": "echo 'No build required'"
   },
-  "devDependencies": {
-    "serve": "^14.2.4",
-    "shx": "^0.3.4"
+  "dependencies": {
+    "serve": "^14.2.0"
   }
 }
