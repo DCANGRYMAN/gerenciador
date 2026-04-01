@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "npx serve .",
-    "build": "npm i"
+    "dev": "serve src",
+    "start": "serve dist",
+    "build": "shx rm -rf dist && shx mkdir dist && shx cp -r src/* dist/",
+    "check-types": "echo 'No types to check'"
   },
   "devDependencies": {
-    "serve": "^14.2.0"
+    "serve": "^14.2.4",
+    "shx": "^0.3.4"
   }
 }
