@@ -1,0 +1,12 @@
+{
+  "name": "project-capital-stream",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "serve .",
+    "build": "echo \"no build step\""
+  },
+  "devDependencies": {
+    "serve": "^14.2.0"
+  }
+}
