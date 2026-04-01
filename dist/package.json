@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "npx serve .",
-    "build": "npm i"
+    "build": "npx serve ."
   },
   "devDependencies": {
     "serve": "^14.2.0"
