@@ -32,6 +32,7 @@ jobs:
         run: |
           npx serve -s . &
           sleep 5
+          
           curl -I http://localhost:3000
 
       - name: Deploy to GitHub Pages
