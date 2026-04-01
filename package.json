@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "dev": "serve src",
     "start": "serve dist",
-    "prebuild": "shx rm -rf dist && shx mkdir dist",
-    "build": "shx cp -r src/* dist/"
+    "build": "shx rm -rf dist && shx mkdir dist && shx cp -r src/* dist/",
+    "check-types": "echo 'No types to check'"
   },
   "devDependencies": {
     "serve": "^14.2.4",
