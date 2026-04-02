@@ -25233,6 +25233,11 @@ const _D = "/assets/logo-gerenciador-DHSom-BN.png",
       title: "Modelo alinhado ao sucesso",
       desc: "Remuneração vinculada ao resultado.",
     },
+    {
+      icon: YT,
+      title: "Acesso ao Clube do Gerenciador",
+      desc: "Oportunidades exclusivas para investidores selecionados.",
+    },
   ],
   GD = [
     "Empresas do agro",
