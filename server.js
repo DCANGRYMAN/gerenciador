@@ -5,27 +5,30 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // 1. Serve os arquivos estáticos da pasta raiz
-// Isso é necessário para o favicon.ico e outros arquivos soltos
 app.use(express.static(__dirname));
 
 // 2. Serve especificamente a pasta 'assets' 
-// Isso garante que o caminho 'assets/index-Dhf9euDW.js' funcione
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
-// 3. Subrota /empreendimentos - serve arquivos estáticos
-app.use('/empreendimentos', express.static(path.join(__dirname, 'empreendimentos')));
-
-// 4. Rota para servir o index.html da pasta empreendimentos
+// 3. Rota /empreendimentos - serve o index.html
 app.get('/empreendimentos', (req, res) => {
     res.sendFile(path.join(__dirname, 'empreendimentos', 'index.html'));
 });
 
-// 5. Rota coringa para SPAs (importante para React/Vite)
+// 4. Serve arquivos estáticos de empreendimentos (css, js, imagens, etc)
+app.use('/empreendimentos', express.static(path.join(__dirname, 'empreendimentos')));
+
+// 5. Fallback para /empreendimentos/* - se tiver rotas internas
+app.get('/empreendimentos/*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'empreendimentos', 'index.html'));
+});
+
+// 6. Rota coringa para app principal (por último!)
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// 6. Log de inicialização
+// 7. Log de inicialização
 app.listen(PORT, () => {
     console.log(`Servidor rodando em http://localhost:${PORT}`);
     console.log(`App principal: http://localhost:${PORT}`);
