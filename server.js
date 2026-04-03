@@ -12,14 +12,12 @@ app.use(express.static(__dirname));
 // Isso garante que o caminho 'assets/index-Dhf9euDW.js' funcione
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
-// 3. Subrota /empreendimentos - serve o build do React
-// Exemplo: http://localhost:3000/empreendimentos
-app.use('/empreendimentos', express.static(path.join(__dirname, 'empreendimentos/build')));
+// 3. Subrota /empreendimentos - serve arquivos estáticos
+app.use('/empreendimentos', express.static(path.join(__dirname, 'empreendimentos')));
 
-// 4. Fallback para /empreendimentos com React Router
-// Garante que rotas internas do app empreendimentos funcionem
-app.get('/empreendimentos/*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'empreendimentos/build', 'index.html'));
+// 4. Rota para servir o index.html da pasta empreendimentos
+app.get('/empreendimentos', (req, res) => {
+    res.sendFile(path.join(__dirname, 'empreendimentos', 'index.html'));
 });
 
 // 5. Rota coringa para SPAs (importante para React/Vite)
@@ -29,7 +27,7 @@ app.get('*', (req, res) => {
 
 // 6. Log de inicialização
 app.listen(PORT, () => {
-    console.log(`✅ Servidor rodando em http://localhost:${PORT}`);
-    console.log(`📱 App principal: http://localhost:${PORT}`);
-    console.log(`🏢 Empreendimentos: http://localhost:${PORT}/empreendimentos`);
+    console.log(`Servidor rodando em http://localhost:${PORT}`);
+    console.log(`App principal: http://localhost:${PORT}`);
+    console.log(`Empreendimentos: http://localhost:${PORT}/empreendimentos`);
 });
